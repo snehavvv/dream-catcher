@@ -1,5 +1,5 @@
 import 'dotenv/config';
-console.log("Gemini key loaded:", !!process.env.GEMINI_API_KEY);
+console.log("Gemini key loaded:", !!(process.env.GEMINI_API_KEY || process.env.gemini_api_key));
 console.log("Gemini model:", process.env.GEMINI_MODEL);
 import express from 'express';
 import { fileURLToPath } from 'url';

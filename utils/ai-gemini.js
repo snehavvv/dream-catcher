@@ -1,16 +1,20 @@
 
 import { GoogleGenAI } from '@google/genai';
 
+// Accept both GEMINI_API_KEY and gemini_api_key (Render may lowercase it)
+const GEMINI_KEY = process.env.GEMINI_API_KEY || process.env.gemini_api_key;
+
 const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY
+  apiKey: GEMINI_KEY
 });
 
 // Call Gemini API for dream interpretation
 export async function getDreamInterpretation(dreamText) {
 
-  if (!process.env.GEMINI_API_KEY) {
+  if (!GEMINI_KEY) {
     throw new Error('Server misconfigured: GEMINI_API_KEY is missing');
   }
+
 
   const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
 

@@ -16,7 +16,7 @@ export async function getDreamInterpretation(dreamText) {
   }
 
 
-  const model = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
+  const model = 'gemini-3.8-flash';
 
   try {
 
